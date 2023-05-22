@@ -1,6 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
 :root{
     --black: #020204;
+    --black2: #141415;
     --light-black: #262626;
     --white: #F2F2F2;
     --green: #003800;
@@ -17,33 +20,65 @@
 /*Generales*/
 body{
     margin: 0;
-    height: 100vh;
-    background-color: var(--light-black);
+    min-height: 100vh;
+    height: 100%;
     
-    display: grid;
+
+    background-image: url('../assets/hacker_background.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    backdrop-filter: blur(.5rem) brightness(.2);
+    overflow-x: hidden;
 }
+
 html{
     font-size: 62.5%;
 }
-main{
-    height: 600px;
-    width: 100%;
 
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 1rem;
-
-    padding: 3rem;
+header{
+    position: absolute;
+    
 }
+
+main{
+    min-height: 100vh;
+    max-width: 120rem;
+
+    padding: 5rem 2rem 0 2rem;
+}
+
 p{
     color: var(--white);
     font-size: 1.5rem;
     margin: 1rem 0;
     padding: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+footer{
+    
+    display: grid;
+    grid-template-columns: max-content max-content 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0 0 0;
+    padding: .2rem .5rem;
+
+    backdrop-filter: opacity(20%);
+    background-color: rgba(0, 0, 0, 0.663);
+   
 }
 
 
 /*Globales*/
+.fuente_um{
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.color_verde{
+    color: #22b455;
+}
+
 .important{
     font-weight: bold;
     font-size: 2rem;
@@ -79,96 +114,177 @@ p{
 /*Header*/
 .logo{
     width: 120px;
-    margin: 1rem;
+    margin: 2rem;
+}
+
+
+/*Main*/
+.secciones{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 5rem;
+}
+
+
+/* Ventana */
+#ventana{
+    border: 2px solid var(--black);
+    background-color: var(--black);
+    width: 100%;
+    max-width: 60rem;
+}
+
+#ventana-header{
+    user-select: none;
+}
+
+#textoVentana{
+    padding-left: 1rem;
+    font-size: 1.3rem;
 }
 
 /*Encriptador*/
 .encriptador{
-    padding: 0 1rem;
-    height: 100%;
-    min-height: 50rem;
-}
-.encriptador > textarea{
-    width: 100%;
-    height: 80%;
-    resize: none;
-    font-size: 20px;
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--black);
-    color: var(--light-green);
-}
-.encriptador > textarea:focus-visible{
-   outline: none;
-   border: 1px solid var(--green);
-}
-.advertencia{
-    font-weight: 300;
-    margin: 1.5rem 0;
+    padding: 1rem .2rem;
+    min-height: 30rem;
+    background-color: var(--black2);
 }
 
-/*Informacion*/
-.info{
+.encriptador p{
+    line-height: 3rem;
+}
+
+.encriptador form{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-end;
 }
 
-
-/* Clipboard */
-.accion{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    row-gap: 1rem;
+.encriptador textarea{
+    height: 24px;
     width: 100%;
-    padding: 1rem;
-    margin: 1rem 0;
-    border: 1px solid var(--green);
-    border-radius: 10px;
-    opacity: 0;
-    transition: all .5s ease-in;
+    padding: 2px;
+    font-size: 1.6rem;
+    word-wrap: break-word;
+    overflow: hidden;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: black;
+    border-bottom: 1px solid var(--light-green);
 }
 
-.aparecer{
-    opacity: 1;
-    transition: all .5s ease-in;
+.encriptador button{
+    background-color: transparent;
+    border: none;
+    padding: 0 2rem;
+    
 }
 
-.descripcion{
-    grid-column: span 2;
-    font-size: 1.7rem;
-    font-weight: bold;
-    text-align: center;
+.encriptador button:disabled{
+    filter: grayscale(1);
 }
 
-.copiar{
-    max-width: 3rem;
-    align-self: flex-end;
-    justify-self: flex-end;
-}
-
-.acciones{
-    height: fit-content;
-    max-height: 500px;
-    background-color: var(--black);
-    padding: 2rem;
-    overflow: auto;
+.encriptador button img{
+    width: 1.5rem;
 }
 
 
 .resultado{
-    font-size: 1.4rem;
-    color: var(--light-green);
-}
-
-.display-none{
     display: none;
+    grid-template-columns: 1fr min-content;
+}
+
+#textoEncriptado{
+    
+}
+
+#copy{
+    position: relative;
+}
+
+#copied{
+    display: none;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
 }
 
 
+.botones{
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-windows{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem 0;
+    user-select: none;
+}
+
+.btn-windows:hover{
+    cursor: pointer;
+    border: 2px solid rgb(124, 124, 124);
+    background-color: rgba(255, 255, 255, 0.065);
+}
+
+
+.active {
+    cursor: pointer;
+    border: 2px solid rgb(0, 56, 115) !important;
+    background-color: rgba(0, 24, 86, 0.065) !important;
+}
+
+.btn-windows img{
+    width: 3rem;
+}
+
+.btn-windows p{
+    font-size: 1rem;
+}
+
+
+/* Footer */
+.footer-so{
+    border-radius: 50%;
+    width: 5rem;
+    aspect-ratio: 1;
+    background-color: var(--light-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-so img{
+    width: 100%;
+}
+
+
+.footer-links{
+    display: flex;
+}
+
+.footer-links a{
+    aspect-ratio: 1;
+    width: 5rem;
+    padding: 1.5rem;
+}
+
+.footer-links a:hover{
+    background-color: var(--black2);
+}
+
+footer p{
+    justify-self: end;
+    margin-right: 1rem;
+    opacity: .7;
+    user-select: none;
+}
 
 /* Scrollbar */
 /* Width */
@@ -193,22 +309,18 @@ p{
 
 /*Media Queries*/
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 700px) {
+    #ventana{
+        position: absolute;
+    }
+
     main{
-        grid-template-columns: 1fr;
+            display: grid;
+                justify-content: end;
+                margin: 0 auto;
     }
 
-    .acciones{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 1rem;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .acciones{
-        display: block;
+    footer{
+        margin-top: -6rem;
     }
 }
-
-

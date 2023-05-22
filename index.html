@@ -11,36 +11,97 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Challenge Encriptador</title>
+    <script src="https://kit.fontawesome.com/9a417a5dd0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <img class="logo" src="./assets/Logo.png" alt="">
+
     </header>
     <main>
-        <section>
-            <form class="encriptador">
-                <textarea name="" id="texto" placeholder="Ingrese el texto aqui"></textarea>
-                <p class="advertencia"> <img src="./assets/bi_exclamation-circle-fill-1.png" alt=""> Solo letras minúsculas y sin acentos
-                </p>
-                <div class="buttons">
-                    <button id="encriptar" class="btn btn-dark">Encriptar</button>
-                    <button id="desencriptar" class="btn btn-light">Desencriptar</button>
-                </div>
-            </form>
-        </section>
-        <div>
-            <section class="info">
-                <img src="./assets/Muñeco.png" alt="">
-                <p class="important">Ningún mensaje fue encontrado</p>
-                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-            </section>
-            <section class="acciones">
+        <div id="ventana">
+            <div id="ventana-header">
+                <p id="textoVentana"></p>
+            </div>
 
+            <section class="encriptador">
+                <p id="textoInicio" class="fuente_um color_verde">
+                </p>
+                <form id="encriptar_form">
+                    <textarea name="texto" id="texto" class="fuente_um color_verde"></textarea>
+
+
+                    <button type="submit" id="encriptar">
+                        <img src="./assets/play-solid.svg" alt="go">
+                    </button>
+                </form>
+                <p id="textoRespuesta" class="fuente_um color_verde"></p>
+                <div id="contenedorEncriptacion" class="resultado">
+                    <p id="textoEncriptado" class="fuente_um color_verde"></p>
+                    <button id="copy">
+                        <img src="./assets/copy-solid.svg" alt="go">
+                        <p id="copied" class="fuente_um color_verde">Copied!</p>
+                    </button>
+                </div>
             </section>
         </div>
 
+
+        <div class="botones">
+            <div id="btnEncriptarMode" class="btn-windows">
+                <img src="./assets/lock-solid.svg" alt="">
+                <p>encriptar.exe</p>
+            </div>
+
+            <div id="btnDesencriptarMode" class="btn-windows">
+                <img src="./assets/lock-open-solid.svg" alt="">
+                <p>desencriptar.exe</p>
+            </div>
+        </div>
+
+        <!-- 
+            <section class="encriptador-wrapper">
+                <form class="encriptador">
+                    <textarea name="" id="texto" placeholder="Ingrese el texto aqui"></textarea>
+                    <p class="advertencia"> <img src="./assets/bi_exclamation-circle-fill-1.png" alt=""> Solo letras
+                        minúsculas y sin acentos
+                    </p>
+                    <div class="buttons">
+                        <button id="encriptar" class="btn btn-dark">Encriptar</button>
+                        <button id="desencriptar" class="btn btn-light">Desencriptar</button>
+                    </div>
+                </form>
+            </section>
+            <section class="info-wrapper">
+                <div class="info">
+                    <img src="./assets/Muñeco.png" alt="">
+                    <p class="important">Ningún mensaje fue encontrado</p>
+                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+
+                </div>
+
+                <div class="acciones display-none">
+
+                </div>
+            </section>
+
+            -->
     </main>
+
+    <footer>
+        <div class="footer-so">
+            <img src="assets/Logo.png" alt="">
+        </div>
+        <div class="footer-links">
+            <a target="_blank" href="https://www.linkedin.com/in/raul-funes/">
+                <img src="assets/linkedin.svg" alt="asdas">
+            </a>
+            <a target="_blank" href="https://github.com/raulfunes">
+                <img src="assets/github.svg" alt="asdas">
+            </a>
+        </div>
+        <p class="fuente_um">Desarrollado por Raúl Funes</p>
+    </footer>
 
     <script src="scripts/scripts.js"></script>
 </body>
